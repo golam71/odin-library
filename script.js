@@ -1,18 +1,16 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-	this.title = title;
-	this.author = author;
-	this.pages = pages;
-	this.read = read;
-
-	this.isRead = read ? "already read" : "not read yet";
-
-	this.info = function () {
+class Book {
+	constructor(title, author, pages, read) {
+		this.title = title;
+		this.author = author;
+		this.pages = pages;
+		this.read = read;
+		myLibrary.push(this);
+	}
+	info() {
 		return `${this.title} by ${this.author}, ${this.pages} pages, ${this.isRead}`;
-	};
-
-	myLibrary.push(this);
+	}
 }
 
 const book1 = new Book("The Book of Optics", "Ibn al-Haytham", 400, true);
@@ -98,4 +96,3 @@ document.getElementById("submit").addEventListener("click", () => {
 		dialog.close();
 	}, 400);
 });
-
